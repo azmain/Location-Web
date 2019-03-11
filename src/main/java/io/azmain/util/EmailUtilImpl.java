@@ -1,4 +1,4 @@
-package io.azmain.locationweb.util;
+package io.azmain.util;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,10 @@
-package io.azmain.locationweb.controller;
+package io.azmain.controller;
 
-import io.azmain.locationweb.entities.Location;
-import io.azmain.locationweb.service.LocationService;
-import io.azmain.locationweb.util.EmailUtil;
+import io.azmain.entities.Location;
+import io.azmain.repos.LocationRepository;
+import io.azmain.service.LocationService;
+import io.azmain.util.EmailUtil;
+import io.azmain.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @Controller
@@ -19,7 +22,16 @@ public class LocationController {
     LocationService service;
 
     @Autowired
+    LocationRepository locationRepository;
+
+    @Autowired
     EmailUtil emailUtil;
+
+    @Autowired
+    ReportUtil reportUtil;
+
+    @Autowired
+    ServletContext sc;
 
     @RequestMapping("/showCreate")
     public String showCreate(){
@@ -33,7 +45,7 @@ public class LocationController {
         String msg = "Successfully Saved Location - "+savedLocation.getName();
         modelMap.addAttribute("msg",msg);
 
-        emailUtil.sendEMail("azmainnishan@gmail.com","Location Saved",
+        emailUtil.sendEMail("vision2infinity@gmail.com","Location Saved",
                 "Location Saved Successfully.");
         return "createLocation";
     }
@@ -71,6 +83,15 @@ public class LocationController {
         List<Location> locations = service.getAllLocations();
         modelMap.addAttribute("locations",locations);
         return "displayLocations";
+    }
+
+    @RequestMapping("/generateReport")
+    public String generateReport(){
+        String path = sc.getRealPath("/");
+        List<Object[]> data = locationRepository.findTypeAndTypeCount();
+        reportUtil.generatePieChart(path, data);
+
+        return "locationReport";
     }
 
 }

@@ -1,4 +1,4 @@
-package io.azmain.locationweb.util;
+package io.azmain.util;
 
 public interface EmailUtil {
 

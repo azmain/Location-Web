@@ -1,4 +1,4 @@
-package io.azmain.locationweb.entities;
+package io.azmain.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
