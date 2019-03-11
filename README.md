@@ -30,4 +30,14 @@ https://www.google.com/settings/security/lesssecureapps
 ```
 * Send email after save in controller.
 
+## Use JFreeChart(a third party app)
+
+* Added dependency.
+* Created report utility interface & implementation.
+* Created an endpoint in controller.
+```
+http://localhost:8080/location/generateReport
+```
+* Generated an image & display.
+
 
