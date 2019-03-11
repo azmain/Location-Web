@@ -1,6 +1,6 @@
-package io.azmain.locationweb.io.azmain.locationweb.service;
+package io.azmain.locationweb.service;
 
-import io.azmain.locationweb.io.azmain.locationweb.entities.Location;
+import io.azmain.locationweb.entities.Location;
 
 import java.util.List;
 

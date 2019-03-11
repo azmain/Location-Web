@@ -1,7 +1,7 @@
-package io.azmain.locationweb.io.azmain.locationweb.service;
+package io.azmain.locationweb.service;
 
-import io.azmain.locationweb.io.azmain.locationweb.entities.Location;
-import io.azmain.locationweb.io.azmain.locationweb.repos.LocationRepository;
+import io.azmain.locationweb.entities.Location;
+import io.azmain.locationweb.repos.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

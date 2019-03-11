@@ -1,7 +1,8 @@
-package io.azmain.locationweb.io.azmain.locationweb.controller;
+package io.azmain.locationweb.controller;
 
-import io.azmain.locationweb.io.azmain.locationweb.entities.Location;
-import io.azmain.locationweb.io.azmain.locationweb.service.LocationService;
+import io.azmain.locationweb.entities.Location;
+import io.azmain.locationweb.service.LocationService;
+import io.azmain.locationweb.util.EmailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,9 @@ public class LocationController {
     @Autowired
     LocationService service;
 
+    @Autowired
+    EmailUtil emailUtil;
+
     @RequestMapping("/showCreate")
     public String showCreate(){
         return "createLocation";
@@ -29,6 +33,8 @@ public class LocationController {
         String msg = "Successfully Saved Location - "+savedLocation.getName();
         modelMap.addAttribute("msg",msg);
 
+        emailUtil.sendEMail("azmainnishan@gmail.com","Location Saved",
+                "Location Saved Successfully.");
         return "createLocation";
     }
 
