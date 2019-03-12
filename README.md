@@ -41,3 +41,27 @@ http://localhost:8080/location/generateReport
 * Generated an image & display.
 
 
+## Location REST Service(CRUD)
+
+* Created a rest controller.
+* Created different methods for different usages.
+* Get all locations(GET)
+```
+http://localhost:8080/location/locations
+```
+* Save a location(POST)
+```
+http://localhost:8080/location/locations
+```
+* Update a location(PUT)
+```
+http://localhost:8080/location/locations
+```
+* Delete a location(DELETE)
+```
+http://localhost:8080/location/locations/id
+```
+* Get a location(GET)
+```
+http://localhost:8080/location/locations/id
+```
